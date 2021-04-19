@@ -1,12 +1,12 @@
 import React, { createContext, useState, useEffect } from 'react'
 import axios from 'axios'
-require('dotenv').config()
+// require('dotenv').config()
 
 export const PlayerContext = createContext()
 
 const GetMlbData = ({children}) => {
     const url = 'https://project.trumedianetworks.com/api'
-    const key = process.env.REACT_APP_API_KEY
+    const key = 'fa718609-36e0-4593-b802-55d9d278b2b5'
     const [mlbData, setMlbData] = useState([{}])
     const [playerStats, setPlayerStats] = useState([{}])
 
@@ -89,7 +89,6 @@ const GetMlbData = ({children}) => {
 
         // </div>
     )
-    
     
 }
 

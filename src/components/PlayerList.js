@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { PlayerContext } from '../contexts/PlayerContext'
 
 class PlayerList extends Component {
-
+    static contextType = PlayerContext
     handleClick = () => {
         console.log('hello')
     }
