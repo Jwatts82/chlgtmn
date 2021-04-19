@@ -1,24 +1,27 @@
-import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import React, { useContext, Component } from 'react'
 import { PlayerContext } from '../contexts/PlayerContext'
 import GridTable from '@nadavshaar/react-grid-table'
+import { useHistory } from 'react-router-dom'
 
-class PlayerList extends Component {
-    static contextType = PlayerContext
+ const PlayerList = () => {
+    // static contextType = PlayerContext
+    const { fullName, teamImage, mlbData, playerId } = useContext(PlayerContext)
+    let history = useHistory()
 
-    handleClick = () => {
-        console.log('hello')
-    }
+    console.log(mlbData)
 
-    render() {
-        console.log(this.context)
+        const handleClick = (e) => {
+            console.log("I have been clicked", e.target.id)
+            // console.log(`${playerId}`)
+            history.push(`/stats/${e.target.id}`)
+        }
         
-        const { fullName, teamImage, mlbData } = this.context
+        // const { fullName, teamImage, mlbData, playerId } = this.context
         const Team = ({ tableManager, value, field, data, column, colIndex, rowIndex }) => {
         return (
-            <div onClick={this.handleClick} className='rgt-cell-inner' style={{display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
-                <img src={data.teamImage} alt="user avatar" />
-                <span className='rgt-text-truncate' style={{marginLeft: 10}}>{value}</span>
+           <div onClick={ handleClick } className='rgt-cell-inner' style={{display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
+                     <img src={data.teamImage} alt="user avatar" id={ data.playerId }/>
+                   <span className='rgt-text-truncate' style={{marginLeft: 10}}>{value}</span>
             </div>
         )
     }
@@ -28,7 +31,7 @@ class PlayerList extends Component {
         {
             id: 1, 
             field: '', 
-            label: 'Team',
+            label: 'Click To See Stats',
             cellRenderer: Team,
         }, 
         {
@@ -40,9 +43,8 @@ class PlayerList extends Component {
     ];
 
         return (
-
             <div>
-                <p>{JSON.stringify(mlbData)}</p>
+                {/* <p>{JSON.stringify(mlbData)}</p> */}
                     <GridTable 
                     columns={columns}
                     showSearch={false}
@@ -51,8 +53,7 @@ class PlayerList extends Component {
                 {/* <p>{JSON.stringify(playerStats)}</p> */}
             </div>
         )
-    }
+    
 }
 
 export default PlayerList
-

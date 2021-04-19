@@ -4,9 +4,9 @@ import axios from 'axios'
 
 export const PlayerContext = createContext()
 
-const GetMlbData = ({children}) => {
+const GetMlbData = (props) => {
     const url = 'https://project.trumedianetworks.com/api'
-    // const key = process.env.REACT_APP_TMN_API_KEY
+    const key = process.env.REACT_APP_TMN_API_KEY
 
     const [mlbData, setMlbData] = useState([{}])
     const [playerStats, setPlayerStats] = useState([{}])
@@ -51,7 +51,7 @@ const GetMlbData = ({children}) => {
             playerStats,
             setPlayerStats
         }}>
-            {children}
+            {props.children}
         </PlayerContext.Provider>
     )
     
