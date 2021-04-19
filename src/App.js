@@ -1,9 +1,16 @@
 import React from 'react'
+import Navbar from './components/Navbar'
+import PlayerList from './components/PlayerList'
 
 function App() {
   return (
     <div className="App">
-      <h1>My app</h1>    
+      <Navbar />
+      <div>
+        <PlayerList />
+      </div>
+      
+
     </div>
   );
 }
