@@ -6,7 +6,8 @@ export const PlayerContext = createContext()
 
 const GetMlbData = ({children}) => {
     const url = 'https://project.trumedianetworks.com/api'
-    const key = process.env.REACT_APP_TMN_API_KEY
+    // const key = process.env.REACT_APP_TMN_API_KEY
+
     const [mlbData, setMlbData] = useState([{}])
     const [playerStats, setPlayerStats] = useState([{}])
 

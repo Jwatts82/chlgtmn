@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { PlayerContext } from '../contexts/PlayerContext'
 import GridTable from '@nadavshaar/react-grid-table'
 
@@ -12,10 +12,11 @@ class PlayerList extends Component {
 
     render() {
         console.log(this.context)
+        
         const { fullName, teamImage, mlbData } = this.context
         const Team = ({ tableManager, value, field, data, column, colIndex, rowIndex }) => {
         return (
-            <div className='rgt-cell-inner' style={{display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
+            <div onClick={this.handleClick} className='rgt-cell-inner' style={{display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
                 <img src={data.teamImage} alt="user avatar" />
                 <span className='rgt-text-truncate' style={{marginLeft: 10}}>{value}</span>
             </div>

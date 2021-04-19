@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import '../index.css'
 
 const Navbar = () => {
     return (
@@ -14,8 +15,3 @@ const Navbar = () => {
 
 export default Navbar
 
-// <PlayerContext.Consumer>{(context) => {
-//     return (
-//         JSX
-//     )
-// }}</PlayerContext.Consumer>

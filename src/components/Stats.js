@@ -13,3 +13,10 @@ const Stats = () => {
 }
 
 export default Stats
+
+
+// <PlayerContext.Consumer>{(context) => {
+//     return (
+//         JSX
+//     )
+// }}</PlayerContext.Consumer>
