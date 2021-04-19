@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class PlayerList extends Component {
 
@@ -10,12 +11,15 @@ class PlayerList extends Component {
         return (
             <div>
                 <h1>Homepage / Player List</h1>
-                <li><a href="#" onClick={this.handleClick}>Player 1</a></li>
-                <li><a href="#" onClick={this.handleClick}>Player 2</a></li>
-                <li><a href="#" onClick={this.handleClick}>Player 3</a></li>
+                <li><Link to="/stats" onClick={this.handleClick}>Player 1</Link></li>
+                <li><Link to="/stats" onClick={this.handleClick}>Player 2</Link></li>
+                <li><Link to="/stats" onClick={this.handleClick}>Player 3</Link></li>
             </div>
         )
     }
 }
 
 export default PlayerList
+
+
+// Link to{`/stats/${player.id}`}
