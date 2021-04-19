@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
+        
         <nav className="navbar">
             <h1>TMN</h1>
             <div className="links">
@@ -12,3 +13,9 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+// <PlayerContext.Consumer>{(context) => {
+//     return (
+//         JSX
+//     )
+// }}</PlayerContext.Consumer>

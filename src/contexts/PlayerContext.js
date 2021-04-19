@@ -6,7 +6,7 @@ export const PlayerContext = createContext()
 
 const GetMlbData = ({children}) => {
     const url = 'https://project.trumedianetworks.com/api'
-    const key = 'fa718609-36e0-4593-b802-55d9d278b2b5'
+    const key = process.env.REACT_APP_TMN_API_KEY
     const [mlbData, setMlbData] = useState([{}])
     const [playerStats, setPlayerStats] = useState([{}])
 
@@ -39,32 +39,6 @@ const GetMlbData = ({children}) => {
         
     }
  
-    // const Team = ({ tableManager, value, field, data, column, colIndex, rowIndex }) => {
-    //     return (
-    //         <div className='rgt-cell-inner' style={{display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
-    //             <img src={data.teamImage} alt="user avatar" />
-    //             <span className='rgt-text-truncate' style={{marginLeft: 10}}>{value}</span>
-    //         </div>
-    //     )
-    // }
-    // const rows = mlbData
-    // const columns = [
-        
-    //     {
-    //         id: 1, 
-    //         field: '', 
-    //         label: '',
-    //         cellRenderer: Team,
-    //     }, 
-    //     {
-    //         id: 2, 
-    //         field: 'fullName', 
-    //         label: 'Name',
-    //     },
-   
-    // ];
-
-    // [{"playerId":543063,"fullName":"Brandon Crawford","playerImage":"https://mlb.mlb.com/images/players/mugshot/ph_543063.jpg","teamImage":"http://static.trumedianetworks.com/images/mlb/teams/137.png"},{"playerId":547180,"fullName":"Bryce Harper","playerImage":"https://mlb.mlb.com/images/players/mugshot/ph_547180.jpg","teamImage":"http://static.trumedianetworks.com/images/mlb/teams/120.png"},{"playerId":605137,"fullName":"Josh Bell","playerImage":"https://mlb.mlb.com/images/players/mugshot/ph_605137.jpg","teamImage":"http://static.trumedianetworks.com/images/mlb/teams/134.png"}]
     useEffect(() => {
         getMlbData()
     }, [])
@@ -78,16 +52,6 @@ const GetMlbData = ({children}) => {
         }}>
             {children}
         </PlayerContext.Provider>
-        // <div>
-        //     <p>{JSON.stringify(mlbData)}</p>
-        //     <GridTable 
-        //     columns={columns}
-        //     showSearch={false}
-        //     rows={rows}
-        //      />
-        //     <p>{JSON.stringify(playerStats)}</p>
-
-        // </div>
     )
     
 }
