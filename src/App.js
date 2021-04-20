@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom'
 
 function App() {
   return (
+
     
       <div className="App">
         <GetMlbData>
@@ -28,3 +29,5 @@ function App() {
 }
 
 export default App;
+
+// handleClick={ playerId => setId(id)}

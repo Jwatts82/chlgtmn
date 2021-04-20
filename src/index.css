@@ -7,7 +7,6 @@
 
 /* Main Styling */
 body {
-  /* margin: 0; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -51,12 +50,12 @@ a {
 
 .flex-container {
   background-color: #f4f4f4;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  height: 50vh;
+  justify-content: center; */
+  /* height: 50vh; */
 }
 
 .item {
@@ -66,18 +65,15 @@ a {
   padding: 10px;
   text-align: center;
   border-radius: 10px;
-  width: 200px;
-  flex: 1 1 200px;
+  /* width: 200px;
+  flex: 1 1 200px;  */
 }
 
 .item-1 {
-  flex-shrink: 0;
+  /* flex-shrink: 0;
+  width: 100%; */
   /* background-image: url(https://mlb.mlb.com/images/players/mugshot/ph_543063.jpg); */
 }
 .item-2 {
-  flex-grow: 1;
-}
-.item-3 {
-}
-.item-4 {
+  /* flex-grow: 1; */
 }

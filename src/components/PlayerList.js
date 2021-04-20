@@ -1,4 +1,4 @@
-import React, { useContext, Component } from 'react'
+import React, { useContext } from 'react'
 import { PlayerContext } from '../contexts/PlayerContext'
 import GridTable from '@nadavshaar/react-grid-table'
 import { useHistory } from 'react-router-dom'
@@ -14,8 +14,9 @@ import { useHistory } from 'react-router-dom'
             console.log("I have been clicked", e.target.id)
             // console.log(`${playerId}`)
             history.push(`/stats/${e.target.id}`)
+            console.log(e.target.id)
         }
-        
+    
         // const { fullName, teamImage, mlbData, playerId } = this.context
         const Team = ({ tableManager, value, field, data, column, colIndex, rowIndex }) => {
         return (

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 import axios from 'axios'
+
 // require('dotenv').config()
 
 export const PlayerContext = createContext()
@@ -8,6 +9,7 @@ const GetMlbData = (props) => {
     const url = 'https://project.trumedianetworks.com/api'
     const key = process.env.REACT_APP_TMN_API_KEY
 
+     
     const [mlbData, setMlbData] = useState([{}])
     const [playerStats, setPlayerStats] = useState([{}])
 
@@ -16,6 +18,8 @@ const GetMlbData = (props) => {
         let mlbapi = '/token'
         let headers = {'apiKey': key}
         let res = await axios.get(url + mlbapi, {headers})
+        console.log(res)
+
         // .then((response) => {
         //     console.log(response)
         // })
@@ -29,8 +33,12 @@ const GetMlbData = (props) => {
         // use mlbData in table
         setMlbData(res.data)
         
-        mlbapi = `/mlb/player/${res.data[0].playerId}`
-        headers.id = res.data[0].playerId
+        // const pid = res.data.find(player => player.playerId == playerId)
+        console.log(res.data)
+        
+        headers.id = res.data[1].playerId
+        mlbapi = `/mlb/player/${headers.id}`
+        // headers.id = res.data[1].playerId
         console.log(res.data)
         console.log(headers)
         res = await axios.get(url + mlbapi, {headers})
@@ -39,6 +47,8 @@ const GetMlbData = (props) => {
 
         
     }
+
+    // const player = {res.data}
  
     useEffect(() => {
         getMlbData()
