@@ -62,7 +62,7 @@ a {
   background: #f4f4f4;
   border: #ccc solid 2px;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   border-radius: 10px;
   /* width: 200px;
@@ -75,5 +75,5 @@ a {
   /* background-image: url(https://mlb.mlb.com/images/players/mugshot/ph_543063.jpg); */
 }
 .item-2 {
-  /* flex-grow: 1; */
+  /* padding: 10px; */
 }

@@ -9,8 +9,7 @@ const Stats = () => {
 
     // console.log(playerStats[0].playerImage)
     // console.log(playerStats.playerImage)
-    console.log(playerStats[0].playerImage)
-
+    // console.log(playerId.playerImage)
 
     const playerHits = playerStats.reduce((prev,cur) => prev + cur.H, 0)
     
@@ -33,14 +32,14 @@ const Stats = () => {
     const OPS = (OBP + SLG).toFixed(3)
 
     // const { fullName, teamImage, mlbData, playerId } = this.context
-    // const Team = ({ tableManager, value, field, data, column, colIndex, rowIndex }) => {
-    //     return (
-    //        <div onClick={ handleClick } className='rgt-cell-inner' style={{display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
-    //                  <img src={data.teamImage} alt="user avatar" id={ data.playerId }/>
-    //                <span className='rgt-text-truncate' style={{marginLeft: 10}}>{value}</span>
-    //         </div>
-    //     )
-    // }
+    const Team = ({ tableManager, value, field, data, column, colIndex, rowIndex }) => {
+        return (
+           <div className='rgt-cell-inner' style={{display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
+                     <img src={data.opponentImage} alt="user avatar" id={ data.playerId }/>
+                   <span className='rgt-text-truncate' style={{marginLeft: 10}}>{value}</span>
+            </div>
+        )
+    }
 
     const rows = playerStats
 
@@ -48,49 +47,57 @@ const Stats = () => {
         
         {
             id: 1, 
-            field: 'gameDate', 
-            label: 'Game Date',
-            // cellRenderer: Team,
-        }, 
-        {
-            id: 2, 
             field: 'opponent', 
             label: 'Opponent',
         },
         {
+            id: 2,
+            field: '',
+            label: '',
+            cellRenderer: Team,
+        },
+        {
             id: 3, 
+            field: 'gameDate', 
+            label: 'Game Date',
+            // cellRenderer: Team,
+        },
+        {
+            id: 4, 
             field: 'AB', 
             label: 'AB',
         },
         {
-            id: 4, 
+            id: 5, 
             field: 'H', 
             label: 'H',
         },
         {
-            id: 5, 
+            id: 6, 
             field: 'HR', 
             label: 'HR',
         },
         {
-            id: 6, 
+            id: 7, 
             field: 'RBI', 
             label: 'RBI',
         },
         {
-            id: 7, 
+            id: 8, 
             field: 'BB', 
             label: 'BB',
         }
    
     ];
 
+    console.log(playerStats[0].playerImage)
     
         return (
             <div className="flex-container">
                 <div className="item item-1">
-                    <img src={playerStats[0].playerImage} alt="cant find"/>
+                    <img src={playerStats[0].playerImage} alt="Player Image"/>
                     <h2>{playerStats[0].fullName}</h2>
+                    {/* <h1> { id }</h1> */}
                     <h2>2018</h2>
                     <br/>
                     <h3>AVG: { AVG }</h3>
@@ -105,8 +112,7 @@ const Stats = () => {
                 </div>
 
             {/* <p>{JSON.stringify(playerStats)}</p> */}
-            {/* <h3>{playerStats[5].H}</h3> */}
-              
+
             </div>
         )
     

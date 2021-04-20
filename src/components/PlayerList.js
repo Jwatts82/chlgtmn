@@ -8,13 +8,13 @@ import { useHistory } from 'react-router-dom'
     const { fullName, teamImage, mlbData, playerId } = useContext(PlayerContext)
     let history = useHistory()
 
-    console.log(mlbData)
+    // console.log(mlbData)
 
         const handleClick = (e) => {
             console.log("I have been clicked", e.target.id)
             // console.log(`${playerId}`)
             history.push(`/stats/${e.target.id}`)
-            console.log(e.target.id)
+            // console.log(e.target.id)
         }
     
         // const { fullName, teamImage, mlbData, playerId } = this.context

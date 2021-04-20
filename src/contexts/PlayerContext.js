@@ -7,8 +7,7 @@ export const PlayerContext = createContext()
 
 const GetMlbData = (props) => {
     const url = 'https://project.trumedianetworks.com/api'
-    const key = process.env.REACT_APP_TMN_API_KEY
-
+    const key = 'fa718609-36e0-4593-b802-55d9d278b2b5'
      
     const [mlbData, setMlbData] = useState([{}])
     const [playerStats, setPlayerStats] = useState([{}])
@@ -18,7 +17,7 @@ const GetMlbData = (props) => {
         let mlbapi = '/token'
         let headers = {'apiKey': key}
         let res = await axios.get(url + mlbapi, {headers})
-        console.log(res)
+        // console.log(res)
 
         // .then((response) => {
         //     console.log(response)
@@ -34,12 +33,12 @@ const GetMlbData = (props) => {
         setMlbData(res.data)
         
         // const pid = res.data.find(player => player.playerId == playerId)
-        console.log(res.data)
+        // console.log(res.data)
         
-        headers.id = res.data[1].playerId
+        headers.id = res.data[0].playerId
         mlbapi = `/mlb/player/${headers.id}`
         // headers.id = res.data[1].playerId
-        console.log(res.data)
+        // console.log(res.data)
         console.log(headers)
         res = await axios.get(url + mlbapi, {headers})
         
@@ -68,4 +67,3 @@ const GetMlbData = (props) => {
 }
 
 export default GetMlbData
-
